@@ -1,3 +1,5 @@
+'use client'
+
 import { Project } from '@/types'
 import { useState } from 'react'
 
