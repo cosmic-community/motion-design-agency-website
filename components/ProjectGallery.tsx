@@ -38,7 +38,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
           {allImages.map((image, index) => (
             <div
               key={index}
-              className="group cursor-pointer"
+              className="group cursor-pointer relative"
               onClick={() => setSelectedImage(index)}
             >
               <div className="aspect-w-16 aspect-h-12 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
@@ -76,7 +76,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
 
               {/* Main Image */}
               <img
-                src={`${allImages[selectedImage].imgix_url}?w=1200&h=900&fit=max&auto=format,compress`}
+                src={`${allImages[selectedImage]?.imgix_url}?w=1200&h=900&fit=max&auto=format,compress`}
                 alt={`${project.metadata.title} - Image ${selectedImage + 1}`}
                 className="max-w-full max-h-full object-contain rounded-lg"
                 onClick={(e) => e.stopPropagation()}
@@ -109,7 +109,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                    </button>
+                  </button>
 
                   {/* Image Counter */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black bg-opacity-50 px-3 py-1 rounded">

@@ -50,9 +50,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <div className="min-h-screen pt-24">
       <ProjectHero project={project} />
       <ProjectContent project={project} />
-      {project.metadata.gallery && project.metadata.gallery.length > 0 && (
-        <ProjectGallery images={project.metadata.gallery} title={project.metadata.title} />
-      )}
+      {(project.metadata.gallery && project.metadata.gallery.length > 0) || project.metadata.featured_image ? (
+        <ProjectGallery project={project} />
+      ) : null}
     </div>
   )
 }
